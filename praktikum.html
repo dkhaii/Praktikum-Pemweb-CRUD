@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Praktikum</title>
+
+        <script src="jqeury.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3>TO DO LIST</h3>
+            
+            <input type="text" id="input" placeholder="Tekan enter untuk menambahkan..">
+            <ul>
+
+            </ul>
+        </div>
+        
+        <script>
+            $(document).ready(function() {
+                //------menambahkan todo list--------
+                $('#input').change(function() {
+                    var input = $(this).val();
+                    $('ul').append('<li>' + input + '<button class="check" id="click">Done</button></li>');
+                    $(this).val('');
+                })
+
+                //-----checklis todo list--------
+                $('ul').on('click', '.check', function(){
+                    $(this).parent('li').fadeOut(200);
+                })
+            })
+        </script>
+    </body>
+</html>
